@@ -7,7 +7,7 @@ Some Turtle function to create different shapes, dash line, random wolk, square 
 
 
 #### Prerequisites
-You will need the following software to run the Caesar Cipher:
+You will need the following software to run the Turtle function:
  - [Python 3](https://www.python.org/downloads/)
  - [colorgram](https://pypi.org/project/colorgram.py/)
 
