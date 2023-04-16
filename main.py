@@ -15,12 +15,14 @@ direction = [0, 90, 180, 270]
 # Function to create Damien Hirst paint
 def create_hirst_paint(name_object):
     """Function to create Damien Hirst paint"""
+
     color_list = []
 
     name_object.penup()
     name_object.setheading(220)
     name_object.forward(560)
     name_object.setheading(0)
+    name_object.speed("fastest")
 
     colors = colorgram.extract('./image/picture.jpg', 30)
 
@@ -59,30 +61,35 @@ def random_color():
 # Function to create spirograph
 def make_spirograph(name_object, grade):
     """Function to create spirograph"""
+
+    name_object.speed("fastest")
     for _ in range(int(360/grade)):
         color = random_color()
         name_object.color(color)
         name_object.right(grade)
         name_object.circle(100)
-    name_object.clear()
 
 
 # Function to generate turtle random wolk with random color
 def random_walk(name_object):
     """Function to do turtle random wolk with random color"""
-    name_object.pensize(5)
 
-    for i in range(21):
+    name_object.pensize(5)
+    name_object.speed("normal")
+
+    for i in range(201):
         color = random_color()
         name_object.setheading(random.choice(direction))
         name_object.color(color)
-        name_object.forward(random.randint(0, 100))
-    name_object.clear()
+        name_object.forward(random.randint(0, 50))
 
 
 # Function to do create different shapes
 def create_different_shapes(name_object, size):
     """Function to do create different shapes"""
+
+    name_object.speed("slowest")
+
     for i in range(3, size+1):
         color = random_color()
         name_object.color(color)
@@ -90,41 +97,44 @@ def create_different_shapes(name_object, size):
         for _ in range(i):
             name_object.forward(50)
             name_object.right(angle)
-    name_object.clear()
 
 
-# Function to do create dash line
+
 def create_dash_line(name_object):
+    """Function to do create dash line"""
+
+    name_object.speed("slowest")
     for i in range(10):
         name_object.forward(10)
         name_object.penup()
         name_object.forward(10)
         name_object.pendown()
-    name_object.clear()
 
 
 # Function to do create square
 def create_square(name_object):
     """Function to do create square"""
+
+    name_object.speed("slowest")
+
     for i in range(4):
         name_object.forward(100)
         name_object.right(90)
-    name_object.clear()
 
 
 tommy = Turtle()
 tommy.shape("turtle")
 tommy.penup()
-tommy.goto(-200,200)
+tommy.goto(0,0)
 tommy.pendown()
-tommy.speed("normal")
 
-create_square(tommy)
-create_dash_line(tommy)
-create_different_shapes(tommy, 9)
-random_walk(tommy)
+
+# create_square(tommy)
+# create_dash_line(tommy)
+# create_different_shapes(tommy, 9)
+# random_walk(tommy)
 make_spirograph(tommy, 5)
-create_hirst_paint(tommy)
+# create_hirst_paint(tommy)
 
 screen = Screen()
 
